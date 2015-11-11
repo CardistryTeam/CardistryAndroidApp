@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Shuffledex</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_survival_mode">SurvivalMode</string>
+    <string name="title_activity_versus_mode">VersusMode</string>
+    <string name="title_activity_practice_mode">PracticeModeActivity</string>
+    <string name="title_activity_scoreboard">ScoreboardActivity</string>
+    <string-array name="dealersGripFlourishArr" >
+        <item>Maverick</item>
+        <item>Cryo</item>
+        <item>Plinko</item>
+        <item>Flatiron</item>
+        <item>Noclip</item>
+        <item>Transfix</item>
+        <item>Fairfax</item>
+        <item>Pomelo</item>
+        <item>Bracket</item>
+        <item>V-Cuts</item>
+        <item>Oracut</item>
+        <item>Acridid</item>
+        <item>Travolta</item>
+        <item>Phaced</item>
+        <item>Zigzagoon</item>
+        <item>Prince Charming</item>
+        <item>That Big Thing</item>
+        <item>Flip Phone</item>
+        <item>Huntington</item>
+        <item>Friffle</item>
+        <item>Grohe</item>
+        <item>Underscore</item>
+        <item>Spin Doctor</item>
+        <item>Meridian</item>
+    </string-array>
+    <string name="title_activity_flowgraph">FlowgraphActivity</string>
+</resources>
