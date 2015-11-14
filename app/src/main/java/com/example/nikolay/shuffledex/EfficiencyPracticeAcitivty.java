@@ -1,25 +1,28 @@
 package com.example.nikolay.shuffledex;
 
-import android.content.Intent;
+import android.app.AlertDialog;
+import android.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.RadioButton;
 
-public class PracticeModeActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class EfficiencyPracticeAcitivty extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_practice_mode);
+        setContentView(R.layout.activity_efficiency_practice_acitivty);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_practice_mode, menu);
+        getMenuInflater().inflate(R.menu.menu_efficiency_practice_acitivty, menu);
         return true;
     }
 
@@ -38,9 +41,9 @@ public class PracticeModeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    public void openEfficiencyPracticeMode(View view) {
-        Intent intent = new Intent(PracticeModeActivity.this, EfficiencyPracticeAcitivty.class);
-        startActivity(intent);
+    public void showFlourishPicker() {
+        DialogFragment alert = new FlourishPickerDialog();
+        alert.show(getFragmentManager(), "flourishes");
     }
+
 }

@@ -7,6 +7,9 @@
     <string name="title_activity_versus_mode">VersusMode</string>
     <string name="title_activity_practice_mode">PracticeModeActivity</string>
     <string name="title_activity_scoreboard">ScoreboardActivity</string>
+    <string name="flourish_picker_text">Choose the moves you want to practice</string>
+    <string name="create">Create</string>
+    <string name="cancel">Cancel</string>
     <string-array name="dealersGripFlourishArr" >
         <item>Maverick</item>
         <item>Cryo</item>
@@ -34,4 +37,5 @@
         <item>Meridian</item>
     </string-array>
     <string name="title_activity_flowgraph">FlowgraphActivity</string>
+    <string name="title_activity_efficiency_practice_acitivty">EfficiencyPracticeAcitivty</string>
 </resources>

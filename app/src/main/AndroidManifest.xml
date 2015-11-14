@@ -36,6 +36,10 @@
             android:name=".FlowgraphActivity"
             android:label="@string/title_activity_flowgraph" >
         </activity>
+        <activity
+            android:name=".EfficiencyPracticeAcitivty"
+            android:label="@string/title_activity_efficiency_practice_acitivty" >
+        </activity>
     </application>
 
 </manifest>
