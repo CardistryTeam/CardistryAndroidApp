@@ -1,8 +1,9 @@
 package com.example.nikolay.shuffledex;
 
-import android.app.AlertDialog;
+
 import android.app.Dialog;
-import android.app.DialogFragment;
+import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
@@ -43,8 +44,7 @@ public class FlourishPickerDialog extends DialogFragment {
 
                     }
                 });
-        builder.create();
-        return builder.show();
+        return builder.create();
     }
 
 }
