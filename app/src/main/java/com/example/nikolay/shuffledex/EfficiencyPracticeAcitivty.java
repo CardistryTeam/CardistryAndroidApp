@@ -1,22 +1,39 @@
 package com.example.nikolay.shuffledex;
 
+import android.content.Context;
 import android.support.v4.app.DialogFragment;
-import android.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class EfficiencyPracticeAcitivty extends AppCompatActivity {
+// Implements methods from NoticeDialogListener inside FlourishPickerDialog (DialogPositiveButtonClick and DialogNegativeButtonClick)
+public class EfficiencyPracticeAcitivty extends FragmentActivity
+        implements FlourishPickerDialog.NoticeDialogListener{
 
+    String[] flourishArray;
+    NumberPicker streakNumberPicker = null;
+    private int streakNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_efficiency_practice_acitivty);
+
+        flourishArray= getResources().getStringArray(R.array.dealersGripFlourishArr);
+
+       // Creating NumberPicker
+        streakNumberPicker = (NumberPicker)findViewById(R.id.streakPicker);
+        streakNumberPicker.setMaxValue(10);
+        streakNumberPicker.setMinValue(3);
+        streakNumberPicker.setWrapSelectorWheel(false);
+        streakNumber = streakNumberPicker.getValue();
     }
 
     @Override
@@ -41,9 +58,43 @@ public class EfficiencyPracticeAcitivty extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Displaying the FlourishPickerDialog
     public void showFlourishPicker (View v){
         DialogFragment alert = new FlourishPickerDialog();
         alert.show(getSupportFragmentManager(), "flourishes");
     }
 
+    //Handling clicking PositiveButton
+    @Override
+    public void onDialogPositiveClick(ArrayList<Integer> arrayList) {
+        ArrayList<String> chosenFlourishes = new ArrayList<>();
+        if (arrayList.size() != 0) {
+            for (int i = 0; i < arrayList.size(); i++) {
+                chosenFlourishes.add(flourishArray[arrayList.get(i)]);
+                Toast.makeText(this, "You have selected: "
+                        + chosenFlourishes.get(i), Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+    }
+
+    //Handling clicking NegativeButton
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        Toast.makeText(this, "Fuck you!", Toast.LENGTH_SHORT).show();
+    }
+
+//    public void displayAnswer(View view) {
+//
+//        LinearLayout mLinearLayout = new LinearLayout(this);
+//        Context context = getApplicationContext();
+//        String suggestionText = "PhonoChoice suggests: " + pickedFlourishes[0];
+//        int duration = Toast.LENGTH_SHORT;
+//
+//        Toast suggestionToast = Toast.makeText(context, suggestionText, duration);
+//        suggestionToast.show();
+//
+//        setContentView(mLinearLayout);
+//    }
 }
