@@ -17,6 +17,8 @@ import java.util.ArrayList;
 public class EfficiencyPracticeAcitivty extends FragmentActivity
         implements FlourishPickerDialog.NoticeDialogListener{
 
+
+    ArrayList<String> extractedFlourishes;
     String[] flourishArray;
     NumberPicker streakNumberPicker = null;
     private int streakNumber;
@@ -74,6 +76,7 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
                 Toast.makeText(this, "You have selected: "
                         + chosenFlourishes.get(i), Toast.LENGTH_SHORT).show();
             }
+            extractedFlourishes = extractFlourishes(chosenFlourishes);
 
         }
 
@@ -82,19 +85,27 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
     //Handling clicking NegativeButton
     @Override
     public void onDialogNegativeClick(DialogFragment dialog) {
-        Toast.makeText(this, "Fuck you!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Fuck you!!!", Toast.LENGTH_SHORT).show();
     }
 
-//    public void displayAnswer(View view) {
-//
-//        LinearLayout mLinearLayout = new LinearLayout(this);
-//        Context context = getApplicationContext();
-//        String suggestionText = "PhonoChoice suggests: " + pickedFlourishes[0];
-//        int duration = Toast.LENGTH_SHORT;
-//
-//        Toast suggestionToast = Toast.makeText(context, suggestionText, duration);
-//        suggestionToast.show();
-//
-//        setContentView(mLinearLayout);
-//    }
+    public ArrayList<String>  extractFlourishes(ArrayList<String> arrayList) {
+        ArrayList<String> extractedFlourishes = new ArrayList<>();
+        for (int i = 0; i < arrayList.size(); i++) {
+            extractedFlourishes.add(arrayList.get(i));
+        }
+
+        return arrayList;
+    }
+
+
+
+    public void displayAnswer(View view) {
+
+        LinearLayout mLinearLayout = new LinearLayout(this);
+
+        for (int i = 0; i < extractedFlourishes.size(); i++) {
+            Toast.makeText(this, extractedFlourishes.get(i), Toast.LENGTH_SHORT).show();
+        }
+        setContentView(mLinearLayout);
+    }
 }
