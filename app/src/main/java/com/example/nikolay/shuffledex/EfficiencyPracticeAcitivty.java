@@ -39,6 +39,7 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
         streakNumberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                // Note: If the value of the picker isn't changed at all, the value is 0. Proper validation is necessary at use.
                 streakNumber = newVal;
             }
         });
@@ -96,6 +97,7 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
 
     public void displayAnswer(View view) {
         try{
+            Toast.makeText(EfficiencyPracticeAcitivty.this, "" + (streakNumber == 0 ? 3 : streakNumber), Toast.LENGTH_SHORT).show();
             for (int i = 0; i < extractedFlourishes.size(); i++) {
                 Toast.makeText(this, extractedFlourishes.get(i), Toast.LENGTH_SHORT).show();
             }
