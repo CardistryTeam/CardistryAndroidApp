@@ -12,6 +12,7 @@ import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 // Implements methods from NoticeDialogListener inside FlourishPickerDialog (DialogPositiveButtonClick and DialogNegativeButtonClick)
 public class EfficiencyPracticeAcitivty extends FragmentActivity
@@ -20,7 +21,7 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
 
     ArrayList<String> extractedFlourishes;
     String[] flourishArray;
-    NumberPicker streakNumberPicker = null;
+    NumberPicker streakNumberPicker;
     private int streakNumber;
 
     @Override
@@ -35,7 +36,12 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
         streakNumberPicker.setMaxValue(10);
         streakNumberPicker.setMinValue(3);
         streakNumberPicker.setWrapSelectorWheel(false);
-        streakNumber = streakNumberPicker.getValue();
+        streakNumberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                streakNumber = newVal;
+            }
+        });
     }
 
     @Override
@@ -76,7 +82,7 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
                 Toast.makeText(this, "You have selected: "
                         + chosenFlourishes.get(i), Toast.LENGTH_SHORT).show();
             }
-            extractedFlourishes = extractFlourishes(chosenFlourishes);
+            extractedFlourishes = FlourishPickerDialog.extractFlourishes(chosenFlourishes);
 
         }
 
@@ -88,24 +94,14 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
         Toast.makeText(this, "Fuck you!!!", Toast.LENGTH_SHORT).show();
     }
 
-    public ArrayList<String>  extractFlourishes(ArrayList<String> arrayList) {
-        ArrayList<String> extractedFlourishes = new ArrayList<>();
-        for (int i = 0; i < arrayList.size(); i++) {
-            extractedFlourishes.add(arrayList.get(i));
-        }
-
-        return arrayList;
-    }
-
-
-
     public void displayAnswer(View view) {
-
-        LinearLayout mLinearLayout = new LinearLayout(this);
-
-        for (int i = 0; i < extractedFlourishes.size(); i++) {
-            Toast.makeText(this, extractedFlourishes.get(i), Toast.LENGTH_SHORT).show();
+        try{
+            for (int i = 0; i < extractedFlourishes.size(); i++) {
+                Toast.makeText(this, extractedFlourishes.get(i), Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception exception) {
+            Toast.makeText(this, "You must choose flourishes to practice with motherfucker", Toast.LENGTH_SHORT).show();
         }
-        setContentView(mLinearLayout);
+
     }
 }
