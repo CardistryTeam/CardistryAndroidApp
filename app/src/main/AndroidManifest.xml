@@ -40,6 +40,10 @@
             android:name=".EfficiencyPracticeAcitivty"
             android:label="@string/title_activity_efficiency_practice_acitivty" >
         </activity>
+        <activity
+            android:name=".EfficiencyPracticePlayActivity"
+            android:label="@string/title_activity_efficiency_practice_play" >
+        </activity>
     </application>
 
 </manifest>

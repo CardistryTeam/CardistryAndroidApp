@@ -1,6 +1,7 @@
 package com.example.nikolay.shuffledex;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ import java.util.concurrent.ExecutionException;
 
 // Implements methods from NoticeDialogListener inside FlourishPickerDialog (DialogPositiveButtonClick and DialogNegativeButtonClick)
 public class EfficiencyPracticeAcitivty extends FragmentActivity
-        implements FlourishPickerDialog.NoticeDialogListener{
+        implements FlourishPickerDialog.NoticeDialogListener {
 
 
     ArrayList<String> extractedFlourishes;
@@ -29,10 +30,10 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_efficiency_practice_acitivty);
 
-        flourishArray= getResources().getStringArray(R.array.dealersGripFlourishArr);
+        flourishArray = getResources().getStringArray(R.array.dealersGripFlourishArr);
 
-       // Creating NumberPicker
-        streakNumberPicker = (NumberPicker)findViewById(R.id.streakPicker);
+        // Creating NumberPicker
+        streakNumberPicker = (NumberPicker) findViewById(R.id.streakPicker);
         streakNumberPicker.setMaxValue(10);
         streakNumberPicker.setMinValue(3);
         streakNumberPicker.setWrapSelectorWheel(false);
@@ -68,7 +69,7 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
     }
 
     //Displaying the FlourishPickerDialog
-    public void showFlourishPicker (View v){
+    public void showFlourishPicker(View v) {
         DialogFragment alert = new FlourishPickerDialog();
         alert.show(getSupportFragmentManager(), "flourishes");
     }
@@ -77,33 +78,38 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
     @Override
     public void onDialogPositiveClick(ArrayList<Integer> arrayList) {
         ArrayList<String> chosenFlourishes = new ArrayList<>();
-        if (arrayList.size() != 0) {
+        if (arrayList.size() == 0) {
+            Toast.makeText(EfficiencyPracticeAcitivty.this, "You didn't select any flourishes", Toast.LENGTH_SHORT).show();
+        } else {
             for (int i = 0; i < arrayList.size(); i++) {
                 chosenFlourishes.add(flourishArray[arrayList.get(i)]);
-                Toast.makeText(this, "You have selected: "
-                        + chosenFlourishes.get(i), Toast.LENGTH_SHORT).show();
+
             }
             extractedFlourishes = FlourishPickerDialog.extractFlourishes(chosenFlourishes);
-
         }
-
     }
 
     //Handling clicking NegativeButton
     @Override
     public void onDialogNegativeClick(DialogFragment dialog) {
-        Toast.makeText(this, "Fuck you!!!", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "You didn't select any flourishes", Toast.LENGTH_SHORT).show();
     }
 
     public void displayAnswer(View view) {
-        try{
-            Toast.makeText(EfficiencyPracticeAcitivty.this, "" + (streakNumber == 0 ? 3 : streakNumber), Toast.LENGTH_SHORT).show();
-            for (int i = 0; i < extractedFlourishes.size(); i++) {
-                Toast.makeText(this, extractedFlourishes.get(i), Toast.LENGTH_SHORT).show();
+        try {
+//            Toast.makeText(EfficiencyPracticeAcitivty.this, "" + (streakNumber == 0 ? 3 : streakNumber), Toast.LENGTH_SHORT).show();
+//            for (int i = 0; i < extractedFlourishes.size(); i++) {
+//                Toast.makeText(this, extractedFlourishes.get(i), Toast.LENGTH_SHORT).show();
+//            }
+            if (extractedFlourishes.size() == 0) {
+                throw new Exception();
             }
+            Intent intent = new Intent(EfficiencyPracticeAcitivty.this, EfficiencyPracticePlayActivity.class);
+            intent.putExtra("streakNumber", streakNumber);
+            intent.putStringArrayListExtra("chosenFlourishes", extractedFlourishes);
+            startActivity(intent);
         } catch (Exception exception) {
-            Toast.makeText(this, "You must choose flourishes to practice with motherfucker", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "You must choose flourishes to practice with first", Toast.LENGTH_SHORT).show();
         }
-
     }
 }
