@@ -1,5 +1,6 @@
 package com.example.nikolay.shuffledex;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 
 public class EfficiencyPracticePlayActivity extends AppCompatActivity {
     private Integer currentStreak = 1;
+    private Integer counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,9 +88,21 @@ public class EfficiencyPracticePlayActivity extends AppCompatActivity {
         currentStreakText.setText(currentStreak.toString());
 
         if (currentStreak > streakNumber) {
+            counter++;
             currentStreak = 1;
             currentStreakText.setText(currentStreak.toString());
-            // *TO-DO - Change flourish
+            if(counter < chosenFlourishes.size()) {
+                for (int i = counter; i < chosenFlourishes.size(); i++) {
+                    for (int j = i; j < chosenFlourishes.size(); j++) {
+                        currentFlourish.setText(chosenFlourishes.get(i));
+                        break;
+                    }
+                    break;
+                }
+            } else {
+                Intent intent = new Intent(EfficiencyPracticePlayActivity.this, PracticeFinishActivity.class);
+                startActivity(intent);
+            }
         }
     }
 
