@@ -17,36 +17,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SurvivalModeActivity"
+            android:name=".survival.SurvivalModeActivity"
             android:label="@string/title_activity_survival_mode" >
         </activity>
         <activity
-            android:name=".VersusModeActivity"
+            android:name=".versus.VersusModeActivity"
             android:label="@string/title_activity_versus_mode" >
         </activity>
         <activity
-            android:name=".PracticeModeActivity"
+            android:name=".practice.PracticeModeActivity"
             android:label="@string/title_activity_practice_mode" >
         </activity>
         <activity
-            android:name=".ScoreboardActivity"
-            android:label="@string/title_activity_scoreboard" >
-        </activity>
-        <activity
-            android:name=".FlowgraphActivity"
-            android:label="@string/title_activity_flowgraph" >
-        </activity>
-        <activity
-            android:name=".EfficiencyPracticeAcitivty"
+            android:name=".practice.efficiency.EfficiencyPracticeAcitivty"
             android:label="@string/title_activity_efficiency_practice_acitivty" >
         </activity>
         <activity
-            android:name=".EfficiencyPracticePlayActivity"
+            android:name=".practice.efficiency.EfficiencyPracticePlayActivity"
             android:label="@string/title_activity_efficiency_practice_play" >
         </activity>
         <activity
-            android:name=".PracticeFinishActivity"
-            android:label="@string/title_activity_practice_finish" >
+            android:name=".practice.efficiency.EfficiencyPracticeFinishActivity"
+            android:label="@string/title_activity_efficiency_practice_finish" >
         </activity>
     </application>
 

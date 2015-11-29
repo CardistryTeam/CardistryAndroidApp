@@ -34,21 +34,4 @@
         android:layout_toEndOf="@+id/SurvivalButton"
         android:onClick="openPracticeMode"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Scoreboard"
-        android:id="@+id/ScoreboardButton"
-        android:layout_below="@+id/VersusButton"
-        android:layout_centerHorizontal="true"
-        android:onClick="openScoreboard"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Flowgraph"
-        android:id="@+id/FlowgraphButton"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="openFlowgraph" />
 </RelativeLayout>

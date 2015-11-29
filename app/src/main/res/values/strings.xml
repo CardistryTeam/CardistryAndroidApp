@@ -40,4 +40,6 @@
     <string name="title_activity_efficiency_practice_acitivty">EfficiencyPracticeAcitivty</string>
     <string name="title_activity_efficiency_practice_play">EfficiencyPracticePlayActivity</string>
     <string name="title_activity_practice_finish">PracticeFinishActivity</string>
+    <string name="title_activity_efficiency_practice_finish">EfficiencyPracticeFinishActivity
+    </string>
 </resources>

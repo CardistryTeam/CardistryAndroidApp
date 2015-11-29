@@ -1,4 +1,4 @@
-package com.example.nikolay.shuffledex;
+package com.example.nikolay.shuffledex.practice;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,22 +7,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.nikolay.shuffledex.practice.PracticeModeActivity;
-import com.example.nikolay.shuffledex.survival.SurvivalModeActivity;
-import com.example.nikolay.shuffledex.versus.VersusModeActivity;
+import com.example.nikolay.shuffledex.R;
+import com.example.nikolay.shuffledex.practice.efficiency.EfficiencyPracticeAcitivty;
 
-public class MainActivity extends AppCompatActivity {
+public class PracticeModeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_practice_mode);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_practice_mode, menu);
         return true;
     }
 
@@ -41,19 +40,9 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void openSurvivalMode(View view) {
-        Intent intent = new Intent(MainActivity.this, SurvivalModeActivity.class);
+
+    public void openEfficiencyPracticeMode(View view) {
+        Intent intent = new Intent(PracticeModeActivity.this, EfficiencyPracticeAcitivty.class);
         startActivity(intent);
     }
-
-    public void openVersusMode(View view) {
-        Intent intent = new Intent(MainActivity.this, VersusModeActivity.class);
-        startActivity(intent);
-    }
-
-    public void openPracticeMode(View view) {
-        Intent intent = new Intent(MainActivity.this, PracticeModeActivity.class);
-        startActivity(intent);
-    }
-
 }
