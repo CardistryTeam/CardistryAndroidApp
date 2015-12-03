@@ -67,7 +67,6 @@ public class EfficiencyPracticePlayActivity extends AppCompatActivity {
         if (streakNumber == 0) {
             streakNumber = 3;
         }
-
         TextView currentFlourish = (TextView) findViewById(R.id.currentFlourish);
         TextView currentStreakText = (TextView) findViewById(R.id.currentStreak);
         currentStreak++;

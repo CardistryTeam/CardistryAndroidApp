@@ -39,7 +39,6 @@ public class Flourish implements Parcelable  {
     public String getCreator() {
         return creator;
     }
-
     public void setCreator(String creator) {
         this.creator = creator;
     }

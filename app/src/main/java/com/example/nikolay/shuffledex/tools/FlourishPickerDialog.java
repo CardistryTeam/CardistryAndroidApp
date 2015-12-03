@@ -87,13 +87,4 @@ public class FlourishPickerDialog extends DialogFragment {
         //Return the AlertDialog
         return builder.create();
     }
-
-    public static ArrayList<Flourish>  extractFlourishes(ArrayList<Flourish> arrayList) {
-        ArrayList<Flourish> extractedFlourishes = new ArrayList<>();
-        for (int i = 0; i < arrayList.size(); i++) {
-            extractedFlourishes.add(arrayList.get(i));
-        }
-
-        return arrayList;
-    }
 }

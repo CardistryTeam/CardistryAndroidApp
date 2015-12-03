@@ -20,10 +20,9 @@ import java.util.ArrayList;
 public class EfficiencyPracticeAcitivty extends FragmentActivity
         implements NoticeDialogListener {
 
-
-    ArrayList<Flourish> extractedFlourishes;
     NumberPicker streakNumberPicker;
-    int streakNumber;
+    ArrayList<Flourish> chosenFlourishes = new ArrayList<>();
+    Integer streakNumber;
 
 
     @Override
@@ -80,7 +79,7 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
     public void onDialogPositiveClick(ArrayList<Integer> arrayList) {
         String[] floArr = getResources().getStringArray(R.array.dealersGripFlourishArr);
         String[] creArr = getResources().getStringArray(R.array.creators);
-        ArrayList<Flourish> chosenFlourishes = new ArrayList<>();
+
         if (arrayList.size() == 0) {
             Toast.makeText(EfficiencyPracticeAcitivty.this, "You didn't select any flourishes", Toast.LENGTH_SHORT).show();
         } else {
@@ -88,7 +87,6 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
                 chosenFlourishes.add(new Flourish(floArr[arrayList.get(i)], creArr[arrayList.get(i)]));
             }
             //extractedFlourishes = FlourishPickerDialog.extractFlourishes(chosenFlourishes);
-            extractedFlourishes = chosenFlourishes;
         }
     }
 
@@ -104,12 +102,12 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
 //            for (int i = 0; i < extractedFlourishes.size(); i++) {
 //                Toast.makeText(this, extractedFlourishes.get(i), Toast.LENGTH_SHORT).show();
 //            }
-            if (extractedFlourishes.size() == 0) {
+            if (chosenFlourishes.size() == 0) {
                 throw new Exception();
             }
             Intent intent = new Intent(EfficiencyPracticeAcitivty.this, EfficiencyPracticePlayActivity.class);
             intent.putExtra("streakNumber", streakNumber);
-            intent.putParcelableArrayListExtra("chosenFlourishes", extractedFlourishes);
+            intent.putParcelableArrayListExtra("chosenFlourishes", chosenFlourishes);
             startActivity(intent);
         } catch (Exception exception) {
             Toast.makeText(this, "You must choose flourishes to practice with first", Toast.LENGTH_SHORT).show();
