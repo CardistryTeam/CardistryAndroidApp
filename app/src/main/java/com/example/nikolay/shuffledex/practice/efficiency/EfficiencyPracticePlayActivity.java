@@ -9,27 +9,28 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nikolay.shuffledex.Flourish;
 import com.example.nikolay.shuffledex.R;
 
 import java.util.ArrayList;
 
 public class EfficiencyPracticePlayActivity extends AppCompatActivity {
-    private Integer currentStreak = 1;
-    private Integer counter = 0;
+    Integer currentStreak = 1;
+    Integer counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_efficiency_practice_play);
-        ArrayList<String> chosenFlourishes = getIntent().getStringArrayListExtra("chosenFlourishes");
+        ArrayList<Flourish> chosenFlourishes = getIntent().getParcelableArrayListExtra("chosenFlourishes");
         Integer streakNumber = getIntent().getIntExtra("streakNumber", 3);
         if (streakNumber == 0) {
             streakNumber = 3;
         }
 
         TextView currentFlourish = (TextView) findViewById(R.id.currentFlourish);
-        currentFlourish.setText(chosenFlourishes.get(0));
+        currentFlourish.setText(chosenFlourishes.get(0).getName());
 
         TextView streakCount = (TextView) findViewById(R.id.streakCount);
         streakCount.setText(streakNumber.toString());
@@ -61,7 +62,7 @@ public class EfficiencyPracticePlayActivity extends AppCompatActivity {
     }
 
     public void onSuccessButtonClick(View view) {
-        ArrayList<String> chosenFlourishes = getIntent().getStringArrayListExtra("chosenFlourishes");
+        ArrayList<Flourish> chosenFlourishes = getIntent().getParcelableArrayListExtra("chosenFlourishes");
         Integer streakNumber = getIntent().getIntExtra("streakNumber", 3);
         if (streakNumber == 0) {
             streakNumber = 3;
@@ -76,10 +77,10 @@ public class EfficiencyPracticePlayActivity extends AppCompatActivity {
             counter++;
             currentStreak = 1;
             currentStreakText.setText(currentStreak.toString());
-            if(counter < chosenFlourishes.size()) {
+            if (counter < chosenFlourishes.size()) {
                 for (int i = counter; i < chosenFlourishes.size(); i++) {
                     for (int j = i; j < chosenFlourishes.size(); j++) {
-                        currentFlourish.setText(chosenFlourishes.get(i));
+                        currentFlourish.setText(chosenFlourishes.get(i).getName());
                         break;
                     }
                     break;

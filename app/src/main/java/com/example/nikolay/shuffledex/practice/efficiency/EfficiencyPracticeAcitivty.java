@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.nikolay.shuffledex.tools.FlourishPickerDialog;
 import com.example.nikolay.shuffledex.R;
 import com.example.nikolay.shuffledex.interfaces.NoticeDialogListener;
-
+import com.example.nikolay.shuffledex.Flourish;
 import java.util.ArrayList;
 
 // Implements methods from NoticeDialogListener inside FlourishPickerDialog (DialogPositiveButtonClick and DialogNegativeButtonClick)
@@ -21,17 +21,17 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
         implements NoticeDialogListener {
 
 
-    ArrayList<String> extractedFlourishes;
-    String[] flourishArray;
+    ArrayList<Flourish> extractedFlourishes;
     NumberPicker streakNumberPicker;
-    private int streakNumber;
+    int streakNumber;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_efficiency_practice_acitivty);
 
-        flourishArray = getResources().getStringArray(R.array.dealersGripFlourishArr);
+
 
         // Creating NumberPicker
         streakNumberPicker = (NumberPicker) findViewById(R.id.streakPicker);
@@ -78,15 +78,17 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
     //Handling clicking PositiveButton
     @Override
     public void onDialogPositiveClick(ArrayList<Integer> arrayList) {
-        ArrayList<String> chosenFlourishes = new ArrayList<>();
+        String[] floArr = getResources().getStringArray(R.array.dealersGripFlourishArr);
+        String[] creArr = getResources().getStringArray(R.array.creators);
+        ArrayList<Flourish> chosenFlourishes = new ArrayList<>();
         if (arrayList.size() == 0) {
             Toast.makeText(EfficiencyPracticeAcitivty.this, "You didn't select any flourishes", Toast.LENGTH_SHORT).show();
         } else {
             for (int i = 0; i < arrayList.size(); i++) {
-                chosenFlourishes.add(flourishArray[arrayList.get(i)]);
-
+                chosenFlourishes.add(new Flourish(floArr[arrayList.get(i)], creArr[arrayList.get(i)]));
             }
-            extractedFlourishes = FlourishPickerDialog.extractFlourishes(chosenFlourishes);
+            //extractedFlourishes = FlourishPickerDialog.extractFlourishes(chosenFlourishes);
+            extractedFlourishes = chosenFlourishes;
         }
     }
 
@@ -107,7 +109,7 @@ public class EfficiencyPracticeAcitivty extends FragmentActivity
             }
             Intent intent = new Intent(EfficiencyPracticeAcitivty.this, EfficiencyPracticePlayActivity.class);
             intent.putExtra("streakNumber", streakNumber);
-            intent.putStringArrayListExtra("chosenFlourishes", extractedFlourishes);
+            intent.putParcelableArrayListExtra("chosenFlourishes", extractedFlourishes);
             startActivity(intent);
         } catch (Exception exception) {
             Toast.makeText(this, "You must choose flourishes to practice with first", Toast.LENGTH_SHORT).show();

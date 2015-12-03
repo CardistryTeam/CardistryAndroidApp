@@ -40,6 +40,10 @@
             android:name=".practice.efficiency.EfficiencyPracticeFinishActivity"
             android:label="@string/title_activity_efficiency_practice_finish" >
         </activity>
+        <activity
+            android:name=".practice.speed.SpeedPracticeActivity"
+            android:label="@string/title_activity_speed_practice" >
+        </activity>
     </application>
 
 </manifest>

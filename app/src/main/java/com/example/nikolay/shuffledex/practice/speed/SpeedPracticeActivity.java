@@ -1,29 +1,24 @@
-package com.example.nikolay.shuffledex.practice;
+package com.example.nikolay.shuffledex.practice.speed;
 
-import android.content.Intent;
-import android.provider.OpenableColumns;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.example.nikolay.shuffledex.R;
-import com.example.nikolay.shuffledex.practice.efficiency.EfficiencyPracticeAcitivty;
-import com.example.nikolay.shuffledex.practice.speed.SpeedPracticeActivity;
 
-public class PracticeModeActivity extends AppCompatActivity {
+public class SpeedPracticeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_practice_mode);
+        setContentView(R.layout.activity_speed_practice);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_practice_mode, menu);
+        getMenuInflater().inflate(R.menu.menu_speed_practice, menu);
         return true;
     }
 
@@ -40,16 +35,5 @@ public class PracticeModeActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-
-    public void openEfficiencyPracticeMode(View view) {
-        Intent intent = new Intent(PracticeModeActivity.this, EfficiencyPracticeAcitivty.class);
-        startActivity(intent);
-    }
-
-    public void openSpeedPracticeMode(View view) {
-        Intent intent = new Intent(PracticeModeActivity.this, SpeedPracticeActivity.class);
-        startActivity(intent);
     }
 }

@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
+import com.example.nikolay.shuffledex.Flourish;
 import com.example.nikolay.shuffledex.R;
 import com.example.nikolay.shuffledex.interfaces.NoticeDialogListener;
 
@@ -17,6 +18,7 @@ import java.util.ArrayList;
  * Created by Nikolay on 11/14/2015.
  */
 public class FlourishPickerDialog extends DialogFragment {
+
 
     /* The activity that creates an instance of this dialog fragment must
  * implement this interface in order to receive event callbacks.
@@ -44,6 +46,7 @@ public class FlourishPickerDialog extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
         // ArrayList<Integer> to hold the index of each flourish the user chooses in the dealersGripArr in string.xml
         final ArrayList<Integer> selectedItemsIndexList = new ArrayList<>();
         // New dialog AlertDialog builder. It's final
@@ -69,7 +72,7 @@ public class FlourishPickerDialog extends DialogFragment {
                 //Handle clicking PositiveButton. This is also the problem I am currently working on.
                 .setPositiveButton(R.string.create, new DialogInterface.OnClickListener() {
                     @Override
-                    public  void onClick(DialogInterface dialog, int id) {
+                    public void onClick(DialogInterface dialog, int id) {
                         mListener.onDialogPositiveClick(selectedItemsIndexList);
 
                     }
@@ -85,8 +88,8 @@ public class FlourishPickerDialog extends DialogFragment {
         return builder.create();
     }
 
-    public static ArrayList<String>  extractFlourishes(ArrayList<String> arrayList) {
-        ArrayList<String> extractedFlourishes = new ArrayList<>();
+    public static ArrayList<Flourish>  extractFlourishes(ArrayList<Flourish> arrayList) {
+        ArrayList<Flourish> extractedFlourishes = new ArrayList<>();
         for (int i = 0; i < arrayList.size(); i++) {
             extractedFlourishes.add(arrayList.get(i));
         }
