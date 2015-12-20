@@ -3,35 +3,40 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@drawable/start_acitivity_bck">
 
-    <Button
+    <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Survival Mode"
-        android:id="@+id/SurvivalButton"
-        android:layout_above="@+id/PracticeButton"
-        android:layout_centerHorizontal="true"
-        android:onClick="openSurvivalMode"/>
+        android:layout_height="90dp"
+        android:id="@+id/imageButton"
+        android:background="@drawable/button_main_practice"
+        android:layout_marginTop="154dp"
+        android:onClick="openPracticeMode"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="15dp" />
 
-    <Button
+    <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Versus Mode"
-        android:id="@+id/VersusButton"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/SurvivalButton"
-        android:layout_toStartOf="@+id/SurvivalButton"
+        android:layout_height="90dp"
+        android:id="@+id/imageButton2"
+        android:background="@drawable/button_main_activity_versus"
+        android:layout_below="@+id/imageButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp"
         android:onClick="openVersusMode"/>
 
-    <Button
+    <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Practice Mode"
-        android:id="@+id/PracticeButton"
-        android:layout_alignBottom="@+id/VersusButton"
-        android:layout_toRightOf="@+id/SurvivalButton"
-        android:layout_toEndOf="@+id/SurvivalButton"
-        android:onClick="openPracticeMode"/>
+        android:layout_height="90dp"
+        android:id="@+id/imageButton3"
+        android:background="@drawable/button_main_activity_survival"
+        android:layout_below="@+id/imageButton2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="openSurvivalMode"/>
 
 </RelativeLayout>

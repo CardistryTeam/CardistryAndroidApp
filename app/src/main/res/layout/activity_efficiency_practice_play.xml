@@ -1,20 +1,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.nikolay.shuffledex.practice.efficiency.EfficiencyPracticePlayActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nikolay.shuffledex.practice.efficiency.EfficiencyPracticePlayActivity"
+    android:background="@drawable/background2">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/currentFlourish"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        android:text="currentFlourish" />
+        android:layout_height="120dp"
+        android:id="@+id/imageView6"
+        android:background="@drawable/csbs"
+        android:layout_below="@+id/imageView5"
+        android:layout_alignLeft="@+id/imageView5"
+        android:layout_alignStart="@+id/imageView5"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_marginTop="120dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,9 +22,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="/"
         android:id="@+id/textView5"
-        android:layout_below="@+id/currentFlourish"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="92dp" />
+        android:textStyle="bold"
+        android:textSize="100dp"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,7 +34,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/currentStreak"
         android:text="cs"
-        android:layout_alignTop="@+id/textView5"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:textSize="100dp"
+
+        android:layout_above="@+id/failButton"
         android:layout_toLeftOf="@+id/textView5"
         android:layout_toStartOf="@+id/textView5" />
 
@@ -42,29 +48,56 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/streakCount"
         android:text="sc"
+        android:textColor="#ffffff"
+        android:textSize="100dp"
+        android:textStyle="bold"
         android:layout_alignTop="@+id/textView5"
         android:layout_toRightOf="@+id/textView5"
         android:layout_toEndOf="@+id/textView5" />
 
-    <Button
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fail"
-        android:id="@+id/failButton"
-        android:onClick="onFailButtonClick"
-        android:layout_alignTop="@+id/successButton"
-        android:layout_toLeftOf="@+id/currentStreak"
-        android:layout_toStartOf="@+id/currentStreak" />
+        android:layout_height="65dp"
+        android:id="@+id/imageView5"
+        android:background="@drawable/current_rectangle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp" />
 
-    <Button
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/failButton"
+        android:background="@drawable/fail_button"
+        android:layout_below="@+id/imageView6"
+        android:layout_toLeftOf="@+id/textView5"
+        android:layout_toStartOf="@+id/textView5"
+        android:layout_marginTop="68dp"
+        android:onClick="onFailButtonClick"/>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Success"
+        android:text="current Flourish"
+        android:id="@+id/currentFlourish"
+        android:textColor="#ffffff"
+        android:textSize="35dp"
+        android:textAlignment="center"
+        android:layout_alignTop="@+id/imageView5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
         android:id="@+id/successButton"
-        android:onClick="onSuccessButtonClick"
-        android:layout_marginBottom="84dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/streakCount"
-        android:layout_toEndOf="@+id/streakCount" />
+        android:layout_alignTop="@+id/failButton"
+        android:background="@drawable/syccess"
+        android:layout_toRightOf="@+id/textView5"
+        android:layout_toEndOf="@+id/textView5"
+        android:layout_alignBottom="@+id/failButton"
+        android:onClick="onSuccessButtonClick"/>
 
 </RelativeLayout>
